@@ -1,0 +1,103 @@
+{
+  "name": "Course",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "level": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "string"
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "lessons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "quizzes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "answer": {
+            "type": "number"
+          },
+          "explain": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "pdf_url": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "accent": {
+      "type": "string",
+      "enum": [
+        "blue",
+        "teal",
+        "sun"
+      ]
+    },
+    "order": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "title",
+    "level",
+    "duration",
+    "skills",
+    "lessons",
+    "icon",
+    "accent",
+    "order"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

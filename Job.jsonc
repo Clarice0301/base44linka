@@ -1,0 +1,145 @@
+{
+  "name": "Job",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "area": {
+      "type": "string"
+    },
+    "level": {
+      "type": "string",
+      "enum": [
+        "Est\u00e1gio",
+        "J\u00fanior",
+        "Pleno",
+        "S\u00eanior"
+      ]
+    },
+    "work_model": {
+      "type": "string",
+      "enum": [
+        "Remoto",
+        "H\u00edbrido",
+        "Presencial"
+      ]
+    },
+    "city": {
+      "type": "string"
+    },
+    "contract": {
+      "type": "string",
+      "enum": [
+        "CLT",
+        "PJ",
+        "Est\u00e1gio",
+        "Tempor\u00e1rio"
+      ]
+    },
+    "salary_label": {
+      "type": "string"
+    },
+    "salary_min": {
+      "type": "number"
+    },
+    "salary_max": {
+      "type": "number"
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "description": {
+      "type": "string"
+    },
+    "culture": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "course_hint": {
+      "type": "string"
+    },
+    "is_demo": {
+      "type": "boolean",
+      "default": true
+    },
+    "budget_confirmed": {
+      "type": "boolean",
+      "default": true
+    },
+    "sla_days": {
+      "type": "number",
+      "default": 5
+    },
+    "routine": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "accent": {
+      "type": "string",
+      "enum": [
+        "blue",
+        "teal",
+        "sun"
+      ]
+    },
+    "response_days": {
+      "type": "number",
+      "default": 5
+    },
+    "order": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "title",
+    "company",
+    "work_model",
+    "salary_label",
+    "requirements",
+    "description",
+    "icon",
+    "accent",
+    "order"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

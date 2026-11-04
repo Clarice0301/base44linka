@@ -1,0 +1,95 @@
+{
+  "name": "CatalogCourse",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "provider": {
+      "type": "string"
+    },
+    "area": {
+      "type": "string"
+    },
+    "level": {
+      "type": "string"
+    },
+    "hours": {
+      "type": "number"
+    },
+    "url": {
+      "type": "string"
+    },
+    "free": {
+      "type": "boolean",
+      "default": true
+    },
+    "certifies": {
+      "type": "boolean",
+      "default": true
+    },
+    "cert_type": {
+      "type": "string"
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "materials": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "verified_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "title",
+    "provider",
+    "area",
+    "level",
+    "hours",
+    "url",
+    "free",
+    "certifies",
+    "cert_type",
+    "skills",
+    "verified_at",
+    "active"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

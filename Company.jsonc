@@ -1,0 +1,83 @@
+{
+  "name": "Company",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "logo_url": {
+      "type": "string"
+    },
+    "segment": {
+      "type": "string"
+    },
+    "site": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string",
+      "enum": [
+        "1-10",
+        "11-50",
+        "51-200",
+        "201-500",
+        "500+"
+      ],
+      "enumColors": [
+        "gray",
+        "blue",
+        "teal",
+        "purple",
+        "pink"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "culture": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "contact_email": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

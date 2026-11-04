@@ -1,0 +1,106 @@
+{
+  "name": "Preference",
+  "type": "object",
+  "properties": {
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "areas": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "level": {
+      "type": "string"
+    },
+    "salary_min": {
+      "type": "number"
+    },
+    "salary_ideal": {
+      "type": "number"
+    },
+    "work_model": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "radius": {
+      "type": "string"
+    },
+    "contract": {
+      "type": "string"
+    },
+    "availability": {
+      "type": "string"
+    },
+    "benefits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "values": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "company_size": {
+      "type": "string"
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dealbreakers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "weights": {
+      "type": "object",
+      "properties": {
+        "skills": {
+          "type": "number"
+        },
+        "experience": {
+          "type": "number"
+        },
+        "salary": {
+          "type": "number"
+        },
+        "location": {
+          "type": "number"
+        },
+        "culture": {
+          "type": "number"
+        },
+        "courses": {
+          "type": "number"
+        }
+      }
+    }
+  },
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}
